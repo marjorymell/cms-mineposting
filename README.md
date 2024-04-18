@@ -1,4 +1,4 @@
-# AwesomeCMS Blog
+# CMS Blog
 
 Bem-vindo ao CMS Blog, um sistema de gerenciamento de conteúdo (CMS) especialmente projetado para entusiastas de jogos que desejam compartilhar suas experiências e opiniões com o mundo. Este projeto é alimentado por Node.js, Nodemon e Mustache, oferecendo uma solução flexível e poderosa para criar e gerenciar seu próprio blog de jogos.
 
