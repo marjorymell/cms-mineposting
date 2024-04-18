@@ -19,10 +19,15 @@ Para começar a usar o CMS Blog, siga estas etapas simples:
 2. Faça o clone deste repositório em sua máquina local.
 3. Abra o terminal e navegue até o diretório do projeto.
 4. Execute o comando abaixo para instalar todas as dependências necessárias:
+
    ```bash
    npm install
    ```
-5. Após a instalação bem-sucedida, execute `npm start` para iniciar o servidor.
+5. Após a instalação bem-sucedida, execute o comando abaixo para iniciar o servidor:
+
+   ```bash
+   npm start
+   ```
+
 6. Acesse o seu blog através do navegador usando o endereço local fornecido pelo servidor.
 
-Agora você está pronto para explorar e personalizar seu próprio blog de jogos com CMS!
