@@ -1,4 +1,4 @@
-//Requires gerais
+//Requires
 const path = require("path")
 const cookieParser = require("cookie-parser")
 const express = require('express')
@@ -22,7 +22,7 @@ app.set("view engine", "mustache");
 //Cookies
 app.use(cookieParser())
 
-//Sessão
+//Session
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
