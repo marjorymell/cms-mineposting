@@ -1,8 +1,9 @@
-//Requires gerais
+//Requires
 const path = require("path")
 const cookieParser = require("cookie-parser")
 const express = require('express')
 const session = require("express-session")
+var mustacheExpress = require("mustache-express")
 require("dotenv").config({ path: "./config/.env" });
 
 const app = express()
@@ -13,16 +14,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 //Template
-var mustacheExpress = require("mustache-express");
+var mustacheExpress = require("mustache-express")
 var engine = mustacheExpress()
 app.engine("mustache", engine);
-app.set("views", path.join(__dirname, "views", "default"));
+app.set("views", path.join(__dirname, "views", "default"))
 app.set("view engine", "mustache");
 
 //Cookies
 app.use(cookieParser())
 
-//Sessão
+//Session
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
