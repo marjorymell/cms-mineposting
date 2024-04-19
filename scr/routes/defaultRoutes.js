@@ -13,12 +13,6 @@ router.get("/login", (req, res) => {
     res.render("login");
 });
 
-//Register
-router.get("/register", (req, res) => {
-    console.log("Acessou a rota '/register");
-    res.render("register");
-});
-
 //Logout
 router.get("/logout", (req, res) => {
     console.log("Acessou a rota '/logout");
