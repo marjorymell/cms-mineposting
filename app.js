@@ -31,6 +31,7 @@ app.use(session({
 
 //Routes
 app.use("/", require('./scr/routes/defaultRoutes'))
+app.use("/admin", require('./scr/routes/adminRoutes'))
 
 app.listen(process.env.PORT, () => {
     console.log("Running...")
