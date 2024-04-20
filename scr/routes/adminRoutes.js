@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-const Acesso = require('../controls/usuario')
 
 router.get("/criar", (req, res) => {
 
@@ -20,9 +19,6 @@ router.get("/deletar", (req, res) => {
     return res.send(`Teste detele`);
 
 })
-
-
-
 
 
 module.exports = router
