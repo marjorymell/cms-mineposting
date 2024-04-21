@@ -1,29 +1,23 @@
-const express = require('express')
-const router = express.Router()
-const { validateLogin, handleValidationErrors } = require('../../utils/validation')
+const express = require('express');
+const router = express.Router();
 
-// Default
-router.get("/", (req, res) => {
-    console.log("Acessou a rota '/'")
+
+// Rota para renderizar o formulário de login
+router.get("/login", (req, res) => {
+    console.log("Acessou a rota '/login'");
+    res.render("login");
+});
+
+// Rota para processar o formulário de login
+router.post("/login", (req, res) => {
+    console.log("Acessou a rota '/login'");
+    res.render("login");
+});
+
+// Rota para renderizar o formulário de login
+router.get("/logout", (req, res) => {
+    console.log("Acessou a rota '/logout'");
     res.render("index");
 });
 
-//Login
-router.get("/login", (req, res) => {
-    console.log("Acessou a rota '/login'")
-    res.render("login")
-});
-
-router.post("/login", validateLogin, handleValidationErrors, (req, res) => {
-    const { email, password } = req.body
-    res.status(400).render('login', { errors: req.validationErrors() })
-  });
-  
-
-//Logout
-router.get("/logout", (req, res) => {
-    console.log("Acessou a rota '/logout")
-    res.render("index")
-});
-
-module.exports = router
+module.exports = router;
