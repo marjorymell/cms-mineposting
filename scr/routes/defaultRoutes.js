@@ -10,10 +10,13 @@ router.get("/", (req, res) => {
 
 
 router.get("/login", (req, res) => {
+    // Verificar se o usuário já está logado
+    if (req.session.isLoggedIn || req.session.isAdmin) {
+        return res.redirect("/"); //Mudar depois para avisar o usuário que ja está logado !!!
+    }
     console.log("Acessou a rota '/login'");
     res.render("login");
 });
-
 
 router.post("/login", (req, res) => {
     const { email, password } = req.body;
