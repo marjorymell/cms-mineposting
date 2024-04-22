@@ -2,23 +2,26 @@ const express = require('express')
 const router = express.Router()
 
 
-router.get("/criar", (req, res) => {
+router.get("/", (req, res) => {
+    console.log("Acessou a rota do admin'/'");
 
-    return res.send(`Teste criar`);
+});
 
-})
+router.get("/posts", (req, res) => {
+    console.log("Acessou a rota '/posts'");
+});
 
-router.get("/editar", (req, res) => {
+router.get("/posts/create", (req, res) => {
+    console.log("Acessou a rota '/posts/create'");
+});
 
-    return res.send(`Teste editar`);
+router.get("/posts/edit/:id", (req, res) => {
+    console.log("Acessou a rota '/posts/create'");
+});
 
-})
-
-router.get("/deletar", (req, res) => {
-
-    return res.send(`Teste detele`);
-
-})
+router.get("/posts/delete/:id", (req, res) => {
+    console.log("Acessou a rota '/posts/create'");
+});
 
 
 module.exports = router
