@@ -4,9 +4,9 @@ const { checksAdmin, checksUser } = require('../../utils/validation');
 
 
 router.get("/", (req, res) => {
-    console.log("Acessou a rota '/'");
-    res.render("index");
+    res.render("index", { isLoggedIn: req.session.isLoggedIn || req.session.isAdmin });
 });
+
 
 
 router.get("/login", (req, res) => {
