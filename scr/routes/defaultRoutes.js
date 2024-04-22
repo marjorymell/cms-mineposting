@@ -2,38 +2,41 @@ const express = require('express');
 const router = express.Router();
 const { checksAdmin, checksUser } = require('../../utils/validation');
 
-
+// Render index page with information about login status
 router.get("/", (req, res) => {
     res.render("index", { isLoggedIn: req.session.isLoggedIn || req.session.isAdmin });
 });
 
-
-
+// Render login page, redirect to home if already logged in
 router.get("/login", (req, res) => {
-    // Verificar se o usuário já está logado
+    // Check if the user is already logged in
     if (req.session.isLoggedIn || req.session.isAdmin) {
-        return res.redirect("/"); //Mudar depois para avisar o usuário que ja está logado !!!
+        return res.redirect("/"); 
     }
     console.log("Acessou a rota '/login'");
     res.render("login");
 });
 
+// Handle login form submission
 router.post("/login", (req, res) => {
     const { email, password } = req.body;
 
+    // Check if user is an admin
     if (checksAdmin(email, password)) {
         req.session.isAdmin = true;
         res.redirect("/");
+    // Check if user is a regular user
     } else if (checksUser(email, password)) {
         req.session.isLoggedIn = true;
         res.redirect("/");
+     // If credentials are invalid, return 401 Unauthorized
     } else {
         res.status(401).send("Credenciais inválidas");
     }
 });
 
+// Handle logout request
 router.get("/logout", (req, res) => {
-    // Destrua a sessão ao fazer logout
     req.session.destroy();
     res.redirect("/");
 });
