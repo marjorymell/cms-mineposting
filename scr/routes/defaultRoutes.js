@@ -16,7 +16,6 @@ router.get("/login", (req, res) => {
 
 
 router.post("/login", (req, res) => {
-    console.log("Acessou a rota '/login'");
     const { email, password } = req.body;
 
     // Verificar se é um administrador
