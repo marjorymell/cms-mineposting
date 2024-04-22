@@ -1,18 +1,14 @@
-const { body } = require('express-validator')
-require('dotenv').config()
+require('dotenv').config();
 
-// Regras de validação para o login do administrador
-exports.adminLoginValidationRules = () => {
-    return [
-        body('email').equals(process.env.ADMIN),
-        body('password').equals(process.env.ADMINPASSWORD)
-    ]
-}
+module.exports = {
+    // Function to check administrator credentials
+    checksAdmin: function(email, password) {
+        return email === process.env.ADMIN && password === process.env.ADMINPASSWORD;
+    },
 
-// Regras de validação para o login do usuário
-exports.userLoginValidationRules = () => {
-    return [
-        body('email').equals(process.env.USER),
-        body('password').equals(process.env.USERPASSWORD)
-    ]
-}
+    // Function to check user credentials
+    checksUser: function(email, password) {
+        return email === process.env.USER && password === process.env.USERPASSWORD;
+    }
+};
+
