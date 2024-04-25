@@ -17,7 +17,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 var mustacheExpress = require("mustache-express")
 var engine = mustacheExpress()
 app.engine("mustache", engine);
-app.set("views", path.join(__dirname, "views", "default"))
+app.set('views', [
+    path.join(__dirname, 'views', 'default'),
+    path.join(__dirname, 'views', 'admin')
+]);
 app.set("view engine", "mustache");
 
 //Cookies

@@ -3,9 +3,10 @@ const router = express.Router()
 
 
 // Route for accessing the admin dashboard
-router.get("/", (req, res) => {
-    console.log("Acessou a rota do admin'/'");
-
+router.get("/admin", (req, res) => {
+    const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
+    const isAdmin = req.session.isAdmin || false; 
+    res.render("admin", { isLoggedIn, isAdmin })
 });
 
 // Route for accessing the posts page

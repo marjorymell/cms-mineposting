@@ -4,7 +4,9 @@ const { checksAdmin, checksUser } = require('../../utils/validation');
 
 // Render index page with information about login status
 router.get("/", (req, res) => {
-    res.render("index", { isLoggedIn: req.session.isLoggedIn || req.session.isAdmin });
+    const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
+    const isAdmin = req.session.isAdmin || false; 
+    res.render("index", { isLoggedIn, isAdmin });
 });
 
 // Render login page, redirect to home if already logged in
@@ -13,7 +15,6 @@ router.get("/login", (req, res) => {
     if (req.session.isLoggedIn || req.session.isAdmin) {
         return res.redirect("/"); 
     }
-    console.log("Acessou a rota '/login'");
     res.render("login");
 });
 
@@ -24,7 +25,7 @@ router.post("/login", (req, res) => {
     // Check if user is an admin
     if (checksAdmin(email, password)) {
         req.session.isAdmin = true;
-        res.redirect("/");
+        res.redirect("/admin");
     // Check if user is a regular user
     } else if (checksUser(email, password)) {
         req.session.isLoggedIn = true;
