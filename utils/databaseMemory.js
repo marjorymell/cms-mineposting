@@ -7,6 +7,10 @@ class DatabaseMemory {
         return this.pages;
     }
 
+    getPageByTitle(title) { 
+        return this.pages.find(page => page.title === title);
+    }
+
     getPageById(id) {
         return this.pages.find(page => page.id === id);
     }
