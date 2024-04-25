@@ -28,29 +28,22 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
     <div class="container">
-        <a class="navbar-brand text-white" href="#">CMS Blog</a>
-       <!-- Link para a rota admin apenas se for admin logado -->
-        {{#isAdmin}}
+        <a class="navbar-brand text-white" href="/">CMS Blog</a>
         <a class="navbar-brand text-danger" href="/admin">Admin</a>
-        {{/isAdmin}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>
-            <div class="d-flex">
-                {{#isLoggedIn}}
-                <!-- Botão de logout -->
-                <a href="/logout" class="btn btn-outline-danger">Logout</a>
-                <!-- Botão "Create Page" -->
-                <a href="/posts/create" class="btn btn-outline-light">Create Page</a>
-                {{/isLoggedIn}}
-                {{^isLoggedIn}}
-                <!-- Botão de login -->
-                <a href="/login" class="btn btn-outline-light">Login</a>
-                {{/isLoggedIn}}
-            </div>
+<div class="d-flex gap-2">
+    <!-- Botão de logout -->
+    <a href="/logout" class="btn btn-outline-danger">Logout</a>
+    <div class="flex-grow-1"></div> <!-- Espaço flexível -->
+    <!-- Botão "Create Page" -->
+    <a href="/posts/create" class="btn btn-outline-warning">Create New Page</a>
+</div>
+
         </div>
     </div>
 </nav>
