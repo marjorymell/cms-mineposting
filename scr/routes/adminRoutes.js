@@ -25,7 +25,7 @@ router.get("/posts", isAdmin, (req, res) => {
 });
 
 router.get("/posts/create", isAdmin, (req, res) => {
-    console.log("Accessed the '/posts/create' route");
+    res.render("createNewPage")
 });
 
 router.get("/posts/edit/:id", isAdmin, (req, res) => {
