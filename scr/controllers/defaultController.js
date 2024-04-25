@@ -30,7 +30,7 @@ const handleLoginFormSubmission = (req, res) => {
         res.redirect("/");
     // Se as credenciais forem inválidas, retorna 401 Unauthorized
     } else {
-        res.status(401).send("Credenciais inválidas");
+        res.status(401).send("Credenciais inválidas"); //Melhorar essa parte !!!
     }
 };
 
@@ -39,6 +39,8 @@ const handleLogoutRequest = (req, res) => {
     req.session.destroy();
     res.redirect("/");
 };
+
+
 
 module.exports = {
     renderIndexPage,

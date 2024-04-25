@@ -19,7 +19,8 @@ var engine = mustacheExpress()
 app.engine("mustache", engine);
 app.set('views', [
     path.join(__dirname, 'views', 'default'),
-    path.join(__dirname, 'views', 'admin')
+    path.join(__dirname, 'views', 'admin'),
+    path.join(__dirname, 'views', 'pages')
 ]);
 app.set("view engine", "mustache");
 
