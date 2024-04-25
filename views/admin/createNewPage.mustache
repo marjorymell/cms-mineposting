@@ -23,31 +23,34 @@
                     <div class="card-body p-5 text-center">
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <h2 class="fw-bold mb-2 text-uppercase">Create Page</h2>
-                            <p class="text-white-50 mb-5">Please enter an ID and the content for the page!</p>
+                            <p class="text-white-50 mb-5">Please enter a name for the page and its content!</p>
+                            <!-- Exibe mensagens de erro -->
                             {{#errors}}
-                            <div class="alert alert-danger" role="alert">
-                                {{msg}}
-                            </div>
+                                <div class="alert alert-danger" role="alert">
+                                    {{msg}}
+                                </div>
                             {{/errors}}
 
-                            <form action="/create-page" method="post">
+                            <form action="/posts/create" method="post">
                                 <div data-mdb-input-init class="form-outline form-white mb-4">
-                                    <input type="text" name="id" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typeIdX">ID</label>
-                                    {{#errors.id}}
-                                    <div class="alert alert-danger" role="alert">
-                                        {{msg}}
-                                    </div>
-                                    {{/errors.id}}
+                                    <input type="text" name="pageName" class="form-control form-control-lg" />
+                                    <label class="form-label" for="typeNameX">Page Name</label>
+                                    <!-- Exibe mensagem de erro para o campo do nome da página -->
+                                    {{#errors.pageName}}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{msg}}
+                                        </div>
+                                    {{/errors.pageName}}
                                 </div>
 
                                 <div data-mdb-input-init class="form-outline form-white mb-4">
                                     <textarea name="content" class="form-control form-control-lg" rows="5"></textarea>
                                     <label class="form-label" for="typeContentX">Content</label>
+                                    <!-- Exibe mensagem de erro para o campo de conteúdo -->
                                     {{#errors.content}}
-                                    <div class="alert alert-danger" role="alert">
-                                        {{msg}}
-                                    </div>
+                                        <div class="alert alert-danger" role="alert">
+                                            {{msg}}
+                                        </div>
                                     {{/errors.content}}
                                 </div>
                                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Create Page</button>

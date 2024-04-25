@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { validateCreatePage } = require('../../utils/validation');
 
 // Middleware for admin verification
 const isAdmin = (req, res, next) => {
@@ -26,6 +27,18 @@ router.get("/posts", isAdmin, (req, res) => {
 
 router.get("/posts/create", isAdmin, (req, res) => {
     res.render("createNewPage")
+});
+
+router.post("/posts/create", isAdmin, (req, res) => {
+    const { error } = validateCreatePage(req.body);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
+
+    // Se os dados estiverem corretos, continuar com a criação da página
+    // Lógica para criar a nova página aqui
+
+    res.status(200).send("Página criada com sucesso!");
 });
 
 router.get("/posts/edit/:id", isAdmin, (req, res) => {
