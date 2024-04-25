@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 // Validation schema for form parameters
 const createPageSchema = Joi.object({
-    pageName: Joi.string().required(),
+    title: Joi.string().required(),
     content: Joi.string().required()
 });
 
