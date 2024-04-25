@@ -14,6 +14,14 @@
         .custom-navbar {
             background-color: #000000;
         }
+        /* Estilos para centralizar conteúdo */
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinhar o conteúdo mais para cima */
+            padding-top: 50px; /* Espaçamento superior */
+            min-height: 70vh; /* Altura mínima para centralizar */
+        }
     </style>
 
 </head>
@@ -41,8 +49,45 @@
     </div>
 </nav>
 
-<div class="container">
-    <!-- Conteúdo da página aqui -->
+<!-- Centralizando os cards -->
+<div class="center-content">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Página 1 - O que é Minecraft?</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Página 2 - Título do segundo card</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Página 3 - Título do terceiro card</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
