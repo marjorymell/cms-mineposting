@@ -63,18 +63,22 @@ const createPage = (req, res) => {
 };
 
 // Função para renderizar uma página específica
+// Função para renderizar uma página específica
 const renderPage = (req, res) => {
+    console.log("Sessão antes da verificação:", req.session);
+
     const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
     const isAdmin = req.session.isAdmin || false;
-    const pageTitle = req.params.pageTitle; // Captura o título da página da URL
-    const page = database.getPageByTitle(pageTitle); // Busca a página pelo título no banco de dados
+    const pageTitle = req.params.title; 
+    const page = database.getPageByTitle(pageTitle);
 
     if (!page) {
         return res.status(404).send("Página não encontrada.");
     }
 
-    // Renderiza a página encontrada usando o modelo correspondente ao nome da página
     res.render(pageTitle, { page, isLoggedIn, isAdmin });
+
+    console.log("Sessão após a renderização:", req.session);
 };
 
 

@@ -15,6 +15,6 @@ router.get("/admin", isAdmin, adminController.renderAdminPage);            // Ro
 router.get("/posts", isAdmin, adminController.getAllPages);                // Rota para renderizar os posts
 router.get("/posts/create", isAdmin, adminController.showCreatePageForm);  // Rota para renderizar a página de criação de nova página
 router.post("/posts/create", isAdmin, adminController.createPage);         // Rota para lidar com o envio do formulário da nova página
-router.get("/posts/:pageTitle", isAdmin, adminController.renderPage);  // Rota para renderizar a página de criação de nova página
+router.get("/posts/:title", isAdmin, adminController.renderPage);  // Rota para renderizar a página de criação de nova página
 
 module.exports = router;
