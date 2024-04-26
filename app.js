@@ -3,7 +3,6 @@ const path = require("path")
 const cookieParser = require("cookie-parser")
 const express = require('express')
 const session = require("express-session")
-
 var mustacheExpress = require("mustache-express")
 require("dotenv").config({ path: "./config/.env" });
 
