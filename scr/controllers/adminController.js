@@ -24,68 +24,10 @@ const showCreatePageForm = (req, res) => {
     res.render("createNewPage");
 };
 
-// Função para criar uma nova página
-const createPage = (req, res) => {
-    const { error } = validateCreatePage(req.body);
-    if (error) {
-        return res.status(400).send(error.details[0].message);
-    }
-
-    const { title, content } = req.body;
-
-    const templatePath = path.join(__dirname, '..', '..', 'views', 'pages', 'templatePages.mustache');
-    const pageFilePath = path.join(__dirname, '..', '..', 'views', 'pages', `${title}.mustache`);
-
-    fs.readFile(templatePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error("Erro ao ler o arquivo de template:", err);
-            return res.status(500).send("Erro interno do servidor.");
-        }
-
-        const pageContent = data.replace('{{title}}', title).replace('{{content}}', content);
-
-        fs.writeFile(pageFilePath, pageContent, (err) => {
-            if (err) {
-                console.error("Erro ao criar arquivo .mustache:", err);
-                return res.status(500).send("Erro interno do servidor.");
-            }
-            console.log("Arquivo página criada com sucesso!");
-
-            // Após criar o arquivo, salve a página no banco de dados
-            const newPage = database.createPage(title, content);
-            if (!newPage) {
-                return res.status(500).send("Erro ao criar a página.");
-            }
-
-            res.redirect(`/posts/${encodeURIComponent(title)}`);
-        });
-    });
-};
-
-// Função para renderizar uma página específica
-// Função para renderizar uma página específica
-const renderPage = (req, res) => {
-    console.log("Sessão antes da verificação:", req.session);
-
-    const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
-    const isAdmin = req.session.isAdmin || false;
-    const pageTitle = req.params.title; 
-    const page = database.getPageByTitle(pageTitle);
-
-    if (!page) {
-        return res.status(404).send("Página não encontrada.");
-    }
-
-    res.render(pageTitle, { page, isLoggedIn, isAdmin });
-
-    console.log("Sessão após a renderização:", req.session);
-};
 
 
 module.exports = {
     renderAdminPage,
     getAllPages,
-    showCreatePageForm,
-    createPage,
-    renderPage 
+    showCreatePageForm
 };
