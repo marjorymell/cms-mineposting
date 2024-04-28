@@ -1,11 +1,18 @@
 const { checksAdmin, checksUser } = require('../../utils/validation')
 const database = require('../../utils/database');
 
-// Renderiza a página inicial com informações sobre o status de login
+// Função para renderizar a página inicial com cards dinâmicos
 const renderIndexPage = (req, res) => {
     const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
     const isAdmin = req.session.isAdmin || false;
-    res.render("index", { isLoggedIn, isAdmin });
+    const pages = getAllPages();
+    console.log("Páginas:", pages);
+
+    res.render("index", { 
+        isLoggedIn, 
+        isAdmin, 
+        pages     
+    });
 };
 
 // Renderiza a página de login, redireciona para a página inicial se já estiver logado
@@ -50,6 +57,10 @@ const handleLogoutRequest = (req, res) => {
     res.redirect("/");
 };
 
+// Função para obter todas as páginas
+const getAllPages = () => {
+    return database.getAllPages();
+};
 
 
 module.exports = {
