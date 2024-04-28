@@ -1,5 +1,4 @@
 const Joi = require('joi');
-
 // Validation schema for form parameters
 const createPageSchema = Joi.object({
     title: Joi.string().regex(/^[a-zA-Z0-9]+$/).required(),
@@ -25,5 +24,5 @@ function checksUser(email, password) {
 module.exports = {
     validateCreatePage,
     checksAdmin,
-    checksUser
+    checksUser,    
 };

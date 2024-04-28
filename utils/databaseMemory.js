@@ -8,7 +8,16 @@ class DatabaseMemory {
     }
 
     getPageByTitle(title) { 
-        return this.pages.find(page => page.title === title);
+        console.log("Buscando página com o título:", title);
+        const page = this.pages.find(page => page.title === title);
+
+        if (page) {
+            console.log("Página encontrada:", page); 
+        } else {
+            console.log("Página não encontrada para o título:", title);
+        }
+
+        return page; 
     }
 
     getPageById(id) {
@@ -45,6 +54,7 @@ class DatabaseMemory {
         this.pages.splice(index, 1);
         return true;
     }
+    
 }
 
 module.exports = DatabaseMemory;
