@@ -16,12 +16,14 @@ class DatabaseMemory {
     }
 
     createPage(title, content) {
+        console.log("Iniciando a criação de uma nova página...");
         const newPage = {
-            id: this.pages.length + 1,
-            title,
+            id: this.pages.length + 1, 
+            title, 
             content
         };
         this.pages.push(newPage);
+        console.log("Página criada com sucesso:", newPage);
         return newPage;
     }
 
