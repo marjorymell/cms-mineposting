@@ -1,10 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const DatabaseMemory = require('../../utils/databaseMemory');
 const { validateCreatePage } = require('../../utils/validation');
-const { checksAdmin, checksUser } = require('../../utils/validation')
-
-const database = new DatabaseMemory();
+const database = require('../../utils/database');
 
 // Função para renderizar a página de administração
 const renderAdminPage = (req, res) => {
