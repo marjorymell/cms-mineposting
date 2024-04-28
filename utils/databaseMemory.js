@@ -4,7 +4,8 @@ class DatabaseMemory {
     }
 
     getAllPages() {
-        return this.pages;
+        console.log("Páginas buscadas:", this.pages);
+        return this.pages; 
     }
 
     getPageByTitle(title) { 
