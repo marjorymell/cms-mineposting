@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController');
 
-// Middleware para verificação de admin
+// Middleware for ADMIN verification
 const isAdmin = (req, res, next) => {
     if (req.session.isAdmin) {
         next();
@@ -11,9 +11,9 @@ const isAdmin = (req, res, next) => {
     }
 };
 
-router.get("/admin", isAdmin, adminController.renderAdminPage);            // Rota para renderizar a página do admin
-router.get("/admin/posts", isAdmin, adminController.getAllPages);                // Rota para renderizar os posts
-router.get("/admin/posts/create", isAdmin, adminController.showCreatePageForm);  // Rota para renderizar a página de criação de nova página
-router.post("/admin/posts/create", isAdmin, adminController.createPage);        // Rota para criar uma nova página
+router.get("/admin", isAdmin, adminController.renderAdminPage);             // Route for ADMIN page rendering
+router.get("/admin/posts", isAdmin, adminController.getAllPages);                 // Route for posts rendering
+router.get("/admin/posts/create", isAdmin, adminController.showCreatePageForm);   // Route for rendering the page creation page
+router.post("/admin/posts/create", isAdmin, adminController.createPage);         // Route for creating a new page
 
 module.exports = router;

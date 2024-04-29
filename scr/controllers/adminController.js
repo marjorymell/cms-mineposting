@@ -3,25 +3,25 @@ const path = require('path');
 const { validateCreatePage } = require('../../utils/validation');
 const database = require('../../utils/database');
 
-// Função para renderizar a página de administração
+// Function to render the ADMIN page
 const renderAdminPage = (req, res) => {
     const isLoggedIn = req.session.isAdmin;
     const isAdmin = req.session.isAdmin || false;
     res.render("admin", { isLoggedIn, isAdmin });
 };
 
-// Função para exibir todas as páginas
+// Function to show all available pages 
 const getAllPages = (req, res) => {
     const pages = database.getAllPages();
     res.json(pages);
 };
 
-// Função para exibir o formulário de criação de nova página
+// Function to show the page creation form
 const showCreatePageForm = (req, res) => {
     res.render("createNewPage");
 };
 
-// Função para criar uma nova página
+// Function to create a new page
 const createPage = (req, res) => {
     const { error } = validateCreatePage(req.body);
     if (error) {
