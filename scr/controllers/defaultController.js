@@ -1,7 +1,7 @@
 const { checksAdmin, checksUser } = require('../../utils/validation')
 const database = require('../../utils/database');
 
-// Função para renderizar a página inicial com cards dinâmicos
+// Function to render the main page w/ dynamic cards
 const renderIndexPage = (req, res) => {
     const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
     const isAdmin = req.session.isAdmin || false;
@@ -15,7 +15,7 @@ const renderIndexPage = (req, res) => {
     });
 };
 
-// Renderiza a página de login, redireciona para a página inicial se já estiver logado
+// Renders the login page, and redirects the user to the main page if they've already logged in
 const renderLoginPage = (req, res) => {
     if (req.session.isLoggedIn || req.session.isAdmin) {
         return res.redirect("/");
@@ -23,7 +23,7 @@ const renderLoginPage = (req, res) => {
     res.render("login");
 };
 
-// Renderiza uma página com base no título fornecido
+// Renders a page w/ the given title
 const renderPageByTitle = (req, res) => {
     const isLoggedIn = req.session.isLoggedIn || req.session.isAdmin;
     const isAdmin = req.session.isAdmin || false;
@@ -36,7 +36,7 @@ const renderPageByTitle = (req, res) => {
     res.render("templatePages", { title, content: page.content, isLoggedIn, isAdmin});
 };
 
-// Lida com o envio do formulário de login
+// Handles the form submission
 const handleLoginFormSubmission = (req, res) => {
     const { email, password } = req.body;
    
@@ -51,13 +51,13 @@ const handleLoginFormSubmission = (req, res) => {
     }
 };
 
-// Lida com o pedido de logout
+// Handles a logout request
 const handleLogoutRequest = (req, res) => {
     req.session.destroy();
     res.redirect("/");
 };
 
-// Função para obter todas as páginas
+// Function to get all available pages
 const getAllPages = () => {
     return database.getAllPages();
 };
