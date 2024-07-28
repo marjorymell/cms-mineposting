@@ -1,35 +1,35 @@
 class DatabaseMemory {
     constructor() {
         this.pages = [];
+        this.nextId = 1; // Para gerar IDs únicos
     }
 
     getAllPages() {
         console.log("Páginas buscadas:", this.pages);
-        return this.pages; 
+        return this.pages;
     }
 
-    getPageByTitle(title) { 
+    getPageByTitle(title) {
         console.log("Buscando página com o título:", title);
         const page = this.pages.find(page => page.title === title);
-
         if (page) {
-            console.log("Página encontrada:", page); 
+            console.log("Página encontrada:", page);
         } else {
             console.log("Página não encontrada para o título:", title);
         }
-
-        return page; 
+        return page;
     }
 
     getPageById(id) {
+        console.log("Buscando página com o ID:", id);
         return this.pages.find(page => page.id === id);
     }
 
     createPage(title, content) {
         console.log("Iniciando a criação de uma nova página...");
         const newPage = {
-            id: this.pages.length + 1, 
-            title, 
+            id: this.nextId++, // Incrementa o ID para garantir unicidade
+            title,
             content
         };
         this.pages.push(newPage);
@@ -38,24 +38,33 @@ class DatabaseMemory {
     }
 
     updatePage(id, title, content) {
+        console.log("Atualizando página com o ID:", id);
         const page = this.getPageById(id);
         if (!page) {
+            console.log("Página não encontrada para o ID:", id);
             return null;
         }
-        page.title = title || page.title;
-        page.content = content || page.content;
+        if (title !== undefined) {
+            page.title = title; // Atualiza o título, se fornecido
+        }
+        if (content !== undefined) {
+            page.content = content; // Atualiza o conteúdo, se fornecido
+        }
+        console.log("Página atualizada com sucesso:", page);
         return page;
     }
 
     deletePage(id) {
+        console.log("Deletando página com o ID:", id);
         const index = this.pages.findIndex(page => page.id === id);
         if (index === -1) {
+            console.log("Página não encontrada para o ID:", id);
             return false;
         }
         this.pages.splice(index, 1);
+        console.log("Página deletada com sucesso.");
         return true;
     }
-    
 }
 
 module.exports = DatabaseMemory;
