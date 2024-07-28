@@ -11,9 +11,11 @@ const isAdmin = (req, res, next) => {
     }
 };
 
-router.get("/admin", isAdmin, adminController.renderAdminPage);             // Route for ADMIN page rendering
-router.get("/admin/posts", isAdmin, adminController.getAllPages);                 // Route for posts rendering
-router.get("/admin/posts/create", isAdmin, adminController.showCreatePageForm);   // Route for rendering the page creation page
+router.get("/admin", isAdmin, adminController.renderAdminPage);                  // Route for ADMIN page rendering
+router.get("/admin/posts", isAdmin, adminController.getAllPages);                // Route for posts rendering
+router.get("/admin/posts/create", isAdmin, adminController.showCreatePageForm);  // Route for rendering the page creation page
 router.post("/admin/posts/create", isAdmin, adminController.createPage);         // Route for creating a new page
+router.get("/admin/posts/edit/:id", isAdmin, adminController.showEditPageForm);  // Route for rendering the edit page form
+router.post("/admin/posts/edit/:id", isAdmin, adminController.updatePage);       // Route for processing the edit page form
 
 module.exports = router;

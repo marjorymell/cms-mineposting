@@ -24,28 +24,30 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <h2 class="fw-bold mb-2 text-uppercase">Edit Page</h2>
                             <p class="text-white-50 mb-5">Please update the content of the page!</p>
-                            <!-- Exibe mensagens de erro -->
+                            
+                            <!-- Exibe mensagens de erro, se houver -->
                             {{#errors}}
                                 <div class="alert alert-danger" role="alert">
                                     {{msg}}
                                 </div>
                             {{/errors}}
 
-                            <form action="/admin/posts/edit" method="post">
-                                <div data-mdb-input-init class="form-outline form-white mb-4">
-                                    <textarea name="content" class="form-control form-control-lg" rows="5">{{content}}</textarea>
+                            <form action="/admin/posts/edit/{{page.id}}" method="post">
+                                <div class="form-outline form-white mb-4">
+                                    <textarea name="content" class="form-control form-control-lg" rows="5">{{page.content}}</textarea>
                                     <label class="form-label" for="typeContentX">Content</label>
-                                    <!-- Exibe mensagem de erro para o campo de conteúdo -->
+                                    <!-- Exibe mensagem de erro para o campo de conteúdo, se houver -->
                                     {{#errors.content}}
                                         <div class="alert alert-danger" role="alert">
                                             {{msg}}
                                         </div>
                                     {{/errors.content}}
                                 </div>
-                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Update Page</button>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Update Page</button>
                                 <div style="margin-top: 20px;"></div>
                                 <a href="/admin" class="text-decoration-none text-white">Back to Homepage</a>
                             </form>
+
                         </div>
                     </div>
                 </div>
