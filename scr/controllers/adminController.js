@@ -48,7 +48,7 @@ const createPage = (req, res) => {
 
 // Function to show the edit page form
 const showEditPageForm = (req, res) => {
-    const pageId = parseInt(req.params.id, 10); // ID da página para edição
+    const pageId = parseInt(req.params.id, 10); 
     const page = database.getPageById(pageId);
 
     if (!page) {
@@ -64,7 +64,7 @@ const updatePage = (req, res) => {
     const pageId = parseInt(req.params.id, 10);
     const { content } = req.body;
 
-    // Validação do conteúdo (pode ser mais complexa dependendo dos requisitos)
+    // Content validation
     if (!content) {
         return res.status(400).send("O conteúdo não pode ser vazio.");
     }
@@ -74,13 +74,13 @@ const updatePage = (req, res) => {
         return res.status(404).send("Página não encontrada.");
     }
 
-    // Atualiza o conteúdo da página no "banco de dados"
+    // Update the page in the database
     const updatedPage = database.updatePage(pageId, undefined, content);
     if (!updatedPage) {
         return res.status(500).send("Erro ao atualizar a página.");
     }
 
-    // Atualiza o arquivo .html correspondente
+    // update the corresponding .html file
     const pageFilePath = path.join(__dirname, '..', '..', 'views', 'pages', `${page.title}.html`);
     fs.writeFile(pageFilePath, content, (err) => {
         if (err) {
@@ -95,7 +95,7 @@ const updatePage = (req, res) => {
 
 //Function to show the delete page form
 const showDeletePageForm = (req, res) => {
-    const pageId = parseInt(req.params.id, 10); // ID da página para exclusão
+    const pageId = parseInt(req.params.id, 10); 
     const page = database.getPageById(pageId);
 
     if (!page) {
@@ -108,20 +108,20 @@ const showDeletePageForm = (req, res) => {
 
 // Function to delete a page'
 const deletePage = (req, res) => {
-    const pageId = parseInt(req.params.id, 10); // ID da página para exclusão
+    const pageId = parseInt(req.params.id, 10); 
 
     const page = database.getPageById(pageId);
     if (!page) {
         return res.status(404).send("Página não encontrada.");
     }
 
-    // Excluir a página do "banco de dados"
+    // Delete the page from the database
     const deletedPage = database.deletePage(pageId);
     if (!deletedPage) {
         return res.status(500).send("Erro ao excluir a página do banco de dados.");
     }
 
-    // Excluir o arquivo .html correspondente
+    // Delete the corresponding .html file
     const pageFilePath = path.join(__dirname, '..', '..', 'views', 'pages', `${page.title}.html`);
     fs.unlink(pageFilePath, (err) => {
         if (err) {

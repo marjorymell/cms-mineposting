@@ -1,7 +1,7 @@
 class DatabaseMemory {
     constructor() {
         this.pages = [];
-        this.nextId = 1; // Para gerar IDs únicos
+        this.nextId = 1; // Unic ID for each page
     }
 
     getAllPages() {
@@ -28,7 +28,7 @@ class DatabaseMemory {
     createPage(title, content) {
         console.log("Iniciando a criação de uma nova página...");
         const newPage = {
-            id: this.nextId++, // Incrementa o ID para garantir unicidade
+            id: this.nextId++, 
             title,
             content
         };
@@ -45,10 +45,10 @@ class DatabaseMemory {
             return null;
         }
         if (title !== undefined) {
-            page.title = title; // Atualiza o título, se fornecido
+            page.title = title; 
         }
         if (content !== undefined) {
-            page.content = content; // Atualiza o conteúdo, se fornecido
+            page.content = content; 
         }
         console.log("Página atualizada com sucesso:", page);
         return page;
