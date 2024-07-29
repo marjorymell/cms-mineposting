@@ -17,5 +17,7 @@ router.get("/admin/posts/create", isAdmin, adminController.showCreatePageForm); 
 router.post("/admin/posts/create", isAdmin, adminController.createPage);         // Route for creating a new page
 router.get("/admin/posts/edit/:id", isAdmin, adminController.showEditPageForm);  // Route for rendering the edit page form
 router.post("/admin/posts/edit/:id", isAdmin, adminController.updatePage);       // Route for processing the edit page form
+router.get("/admin/posts/delete/:id", isAdmin, adminController.showDeletePageForm);      // Route for rendering the delete page
+router.post("/admin/posts/delete/:id", isAdmin, adminController.deletePage);     // Route for processing the deletion of a page
 
 module.exports = router;

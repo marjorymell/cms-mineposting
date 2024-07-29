@@ -93,6 +93,47 @@ const updatePage = (req, res) => {
     });
 };
 
+//Function to show the delete page form
+const showDeletePageForm = (req, res) => {
+    const pageId = parseInt(req.params.id, 10); // ID da página para exclusão
+    const page = database.getPageById(pageId);
+
+    if (!page) {
+        return res.status(404).send("Página não encontrada.");
+    }
+
+    res.render("deletePage", { page });
+};
+
+
+// Function to delete a page'
+const deletePage = (req, res) => {
+    const pageId = parseInt(req.params.id, 10); // ID da página para exclusão
+
+    const page = database.getPageById(pageId);
+    if (!page) {
+        return res.status(404).send("Página não encontrada.");
+    }
+
+    // Excluir a página do "banco de dados"
+    const deletedPage = database.deletePage(pageId);
+    if (!deletedPage) {
+        return res.status(500).send("Erro ao excluir a página do banco de dados.");
+    }
+
+    // Excluir o arquivo .html correspondente
+    const pageFilePath = path.join(__dirname, '..', '..', 'views', 'pages', `${page.title}.html`);
+    fs.unlink(pageFilePath, (err) => {
+        if (err) {
+            console.error("Erro ao excluir o arquivo .html:", err);
+            return res.status(500).send("Erro interno do servidor.");
+        }
+
+        console.log("Arquivo página excluído com sucesso!");
+        res.status(200).send("Página excluída com sucesso.");
+    });
+};
+
 
 module.exports = {
     renderAdminPage,
@@ -100,5 +141,7 @@ module.exports = {
     showCreatePageForm,
     createPage,
     showEditPageForm,
-    updatePage
+    updatePage,
+    showDeletePageForm,
+    deletePage
 };
