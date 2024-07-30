@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Page</title>
-    <!-- Bootstrap CSS -->
+    <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         .gradient-custom {
-            background: linear-gradient(135deg, #00F082, #00B9F0); /* Degradê de laranja escuro para amarelo */
+            background: linear-gradient(135deg, #00F082, #00B9F0); /* Dark orange to yellow gradient */
         }
     </style>
 </head>
@@ -24,7 +25,7 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <h2 class="fw-bold mb-2 text-uppercase">Create Page</h2>
                             <p class="text-white-50 mb-5">Please enter a name for the page and its content!</p>
-                            <!-- Exibe mensagens de erro -->
+                            <!-- Shows error messages -->
                             {{#errors}}
                                 <div class="alert alert-danger" role="alert">
                                     {{msg}}
@@ -35,7 +36,7 @@
                                 <div data-mdb-input-init class="form-outline form-white mb-4">
                                     <input type="text" name="title" class="form-control form-control-lg" />
                                     <label class="form-label" for="typeNameX">Page Name</label>
-                                    <!-- Exibe mensagem de erro para o campo do nome da página -->
+                                    <!-- Shows error message for the page name -->
                                     {{#errors.title}}
                                         <div class="alert alert-danger" role="alert">
                                             {{msg}}
@@ -46,7 +47,7 @@
                                 <div data-mdb-input-init class="form-outline form-white mb-4">
                                     <textarea name="content" class="form-control form-control-lg" rows="5"></textarea>
                                     <label class="form-label" for="typeContentX">Content</label>
-                                    <!-- Exibe mensagem de erro para o campo de conteúdo -->
+                                    <!-- Shows error message for content -->
                                     {{#errors.content}}
                                         <div class="alert alert-danger" role="alert">
                                             {{msg}}
