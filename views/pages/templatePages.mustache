@@ -14,6 +14,9 @@
         .custom-navbar {
             background-color: #60af29;
         }
+        div.content{
+            word-break: break-all;
+        }
     </style>
 
 </head>
@@ -43,7 +46,8 @@
         </div>
     </div>
 </nav>
-<div class="d-flex justify-content-center">{{content}}</div>
+<h1 class="d-flex justify-content-center">{{title}}</h1>
+<div class="content" class="d-flex justify-content-center">{{content}}</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
