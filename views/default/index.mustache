@@ -24,6 +24,13 @@
             padding-top: 50px; /* Espaçamento superior */
             min-height: 70vh; /* Altura mínima para centralizar */
         }
+        p.textcard{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical; 
+        }
     </style>
 </head>
 <body>
@@ -60,7 +67,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{title}}</h5>
-                        <p class="card-text">{{content}}</p>
+                        <p class="textcard" class="card-text" >{{content}}</p>
                         <a href="/posts/{{title}}" class="card-link">Ver mais</a>
                         {{#isAdmin}}
                         <a href="/admin/posts/edit/{{id}}" class="card-link">Editar Página</a>
