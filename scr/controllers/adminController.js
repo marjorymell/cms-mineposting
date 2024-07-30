@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { validateCreatePage } = require('../../utils/validation');
+const { validateCreatePage, validateNamePage } = require('../../utils/validation');
 const database = require('../../utils/database');
 
 // Function to render the ADMIN page
@@ -20,17 +20,19 @@ const getAllPages = (req, res) => {
 const showCreatePageForm = (req, res) => {
     res.render("createNewPage");
 };
-
 // Function to create a new page
 const createPage = (req, res) => {
-    const { error } = validateCreatePage(req.body);
-    if (error) {
-        return res.status(400).send(error.details[0].message);
+    const { title, content } = req.body;
+    const { error: validationError } = validateCreatePage(req.body);
+    if (validationError) {
+        return res.status(400).send(validationError.details[0].message);
+    }
+    const { error: titleError } = validateNamePage(title);
+    if (titleError) {
+        return res.status(400).send(titleError.details[0].message);
     }
 
-    const { title, content } = req.body;
     const pageFilePath = path.join(__dirname, '..', '..', 'views', 'pages', `${title}.html`);
-
     fs.writeFile(pageFilePath, content, (err) => {
         if (err) {
             console.error("Erro ao criar arquivo .html:", err);
@@ -48,7 +50,7 @@ const createPage = (req, res) => {
 
 // Function to show the edit page form
 const showEditPageForm = (req, res) => {
-    const pageId = parseInt(req.params.id, 10); 
+    const pageId = parseInt(req.params.id, 10);
     const page = database.getPageById(pageId);
 
     if (!page) {
@@ -95,7 +97,7 @@ const updatePage = (req, res) => {
 
 //Function to show the delete page form
 const showDeletePageForm = (req, res) => {
-    const pageId = parseInt(req.params.id, 10); 
+    const pageId = parseInt(req.params.id, 10);
     const page = database.getPageById(pageId);
 
     if (!page) {
@@ -108,7 +110,7 @@ const showDeletePageForm = (req, res) => {
 
 // Function to delete a page'
 const deletePage = (req, res) => {
-    const pageId = parseInt(req.params.id, 10); 
+    const pageId = parseInt(req.params.id, 10);
 
     const page = database.getPageById(pageId);
     if (!page) {
