@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const database = require('../utils/database');
 
 // Validation schema for form parameters
 const createPageSchema = Joi.object({
@@ -21,9 +22,16 @@ function checksUser(email, password) {
     return email === process.env.USER && password === process.env.USERPASSWORD;
 }
 
-
+function validateNamePage(title) {
+    const existingPage = database.getPageByTitle(title);
+    if (existingPage) {
+        return { error: { details: [{ message: "O título da página já está em uso." }] } };
+    }
+    return { error: null };
+}
 module.exports = {
     validateCreatePage,
     checksAdmin,
-    checksUser,    
+    checksUser,
+    validateNamePage,
 };
