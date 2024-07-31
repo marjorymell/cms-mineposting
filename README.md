@@ -2,6 +2,16 @@
 
 Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especialmente projetado para jogadores de Minecraft que desejam compartilhar suas experiências e opiniões com o mundo. Este projeto é alimentado por Node.js, Nodemon e Mustache, oferecendo uma solução flexível e poderosa para criar e gerenciar seu próprio blog sobre o jogo.
 
+## Índice
+
+- [Recursos Principais](#recursos-principais)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Contribuição](#contribuição)
+- [Contato](#contato)
+
 ## Recursos Principais
 
 - **Autenticação de Usuário:** Mantenha seu blog seguro com autenticação de usuário robusta.
@@ -11,23 +21,58 @@ Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especia
 - **Login de Admin:** Acesse recursos administrativos exclusivos para gerenciar seu blog com facilidade.
 - **Validação de Parâmetros:** Garanta a integridade dos dados com validação de parâmetros incorporada.
 
-## Como Rodar
+## Estrutura do Projeto
+
+A organização do código está estruturada da seguinte maneira:
+
+- **controllers/**
+  - `admincontroller.js`: Controla funções administrativas como criação, edição e exclusão de páginas.
+  - `defaultcontroller.js`: Controla funções de usuários comuns.
+- **routes/**
+  - `adminroutes.js`: Define as rotas acessíveis apenas para administradores.
+  - `defaultroutes.js`: Define as rotas acessíveis para todos os usuários.
+- **views/**: Contém os arquivos Mustache para renderização das páginas HTML.
+- **models/**: Define os modelos de dados e lógica de acesso ao banco de dados.
+
+## Tecnologias Utilizadas
+
+- **Node.js:** Plataforma de desenvolvimento server-side.
+- **Nodemon:** Ferramenta para monitorar e reiniciar automaticamente o servidor durante o desenvolvimento.
+- **Mustache:** Motor de templates para renderização de páginas HTML.
+- **databasememory:** Solução de banco de dados em memória para persistência de dados.
+- **Joi:** Biblioteca para validação de dados.
+
+## Instalação
 
 Para começar a usar o Mineposting, siga estas etapas simples:
 
 1. Certifique-se de ter o Node.js instalado em seu sistema.
-2. Faça o clone deste repositório em sua máquina local.
-3. Abra o terminal e navegue até o diretório do projeto.
-4. Execute o comando abaixo para instalar todas as dependências necessárias:
-
+2. Faça o clone deste repositório em sua máquina local:
    ```bash
+   git clone https://github.com/MarjoryMel/cms-mineposting
+3. Abra o terminal e execute comando abaixo para instalar todas as dependências necessárias:
    npm install
-   ```
-5. Após a instalação bem-sucedida, execute o comando abaixo para iniciar o servidor:
-
-   ```bash
+4. Após a instalação bem-sucedida, execute o comando abaixo para iniciar o servidor:
    npm start
-   ```
+5. Acesse o seu blog através do navegador usando o endereço local : http://localhost:3000/
 
-6. Acesse o seu blog através do navegador usando o endereço local fornecido pelo servidor.
+## Uso
 
+Após a instalação, você pode começar a usar o Mineposting para gerenciar seu blog sobre Minecraft. A tela inicial do blog apresenta alguns mobs do jogo, criando um ambiente temático envolvente.
+
+## Contribuição
+
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
+
+1. Fork o repositório.
+2. Crie um branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas alterações (`git commit -m 'Adiciona nova feature'`).
+4. Push para o branch (`git push origin feature/nova-feature`).
+5. Abra um Pull Request.
+
+## Contato
+
+Para quaisquer dúvidas ou sugestões, sinta-se à vontade para entrar em contato com a equipe:
+
+- GitHub(s): Gabvfla, MarjoryMel, leila-minello, Celsolf.
+  
