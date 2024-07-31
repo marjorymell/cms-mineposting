@@ -1,7 +1,29 @@
+const path = require('path');
+const fs = require('fs');
+
 class DatabaseMemory {
     constructor() {
         this.pages = [];
-        this.nextId = 1; // Unic ID for each page
+        this.nextId = 1; // Unique ID for each page
+        this.loadPagesFromFiles(); // Load pages from HTML files on initialization
+    }
+
+    loadPagesFromFiles() {
+        const pagesDir = path.join(__dirname, '..', 'views', 'pages');
+        const files = fs.readdirSync(pagesDir);
+
+        files.forEach(file => {
+            if (file.endsWith('.html')) {
+                const title = path.basename(file, '.html');
+                const filePath = path.join(pagesDir, file);
+                const content = fs.readFileSync(filePath, 'utf8');
+                this.pages.push({
+                    id: this.nextId++,
+                    title,
+                    content
+                });
+            }
+        });
     }
 
     getAllPages() {
