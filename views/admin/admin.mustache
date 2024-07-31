@@ -8,46 +8,65 @@
     <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Página inicial!</title>
-    
+    <title>Admin Dashboard</title>
+
     <!-- Personalized CSS styles -->
     <style>
         .custom-navbar {
             background-color: #2c4d30;
         }
-        
-        /* Styles for content centering */
-        .center-content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Aligns content to the top */
-            padding-top: 50px; /* Top spacing */
-            min-height: 70vh; /* Min. height for centering */
+        .content {
+            padding: 20px;
         }
-
+        .page-item {
+            margin-bottom: 10px;
+        }
     </style>
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
         <div class="container">
             <a class="navbar-brand text-white" href="/">MINEPOSTING</a>
+            {{#isAdmin}}
             <a href="/admin" class="btn btn-light">Admin</a>
+            {{/isAdmin}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 <div class="d-flex gap-2">
-                    <!-- Logout button -->
+                    {{#isLoggedIn}}
                     <a href="/logout" class="btn btn-danger">Logout</a>
-                    <div class="flex-grow-1"></div> <!-- Flex space -->
-                    <!-- "Create page" button -->
-                    <a href="/admin/posts/create" class="btn btn-warning">Create New Page</a>
+                    {{/isLoggedIn}}
+                    {{^isLoggedIn}}
+                    <a href="/login" class="btn btn-light">Login</a>
+                    {{/isLoggedIn}}
                 </div>
             </div>
         </div>
     </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Admin Dashboard</h1>
+        <div class="content">
+            <p><strong>Total Pages:</strong> {{totalPages}}</p>
+            <a href="/admin/posts/create" class="btn btn-warning mb-4">Create New Page</a>
+
+            {{#pages}}
+            <div class="page-item">
+                <h5>{{title}}</h5>
+                <a href="/admin/posts/edit/{{id}}" class="btn btn-primary me-2">Edit</a>
+                <a href="/admin/posts/delete/{{id}}" class="btn btn-danger">Delete</a>
+            </div>
+            {{/pages}}
+
+            {{^pages}}
+            <p>No pages found.</p>
+            {{/pages}}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

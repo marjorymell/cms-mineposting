@@ -24,7 +24,7 @@
             padding-top: 50px; /* Top spacing */
             min-height: 70vh; /* Min. height for centering */
         }
-        p.textcard{
+        p.textcard {
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -32,25 +32,27 @@
             -webkit-box-orient: vertical; 
         }
 
-        .edit-link {
-            color: #007bff; /* Cor azul para o link de edição */
+        .edit-button, .delete-button, .see-more-button {
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0.25rem;
         }
 
-        .delete-link {
-            color: #dc3545; /* Cor vermelha para o link de exclusão */
-            display: block; /* Faz com que o link "Delete Page" vá para a linha abaixo */
-            margin-top: 5px; /* Espaçamento entre os links "Edit Page" e "Delete Page" */
+        .edit-button {
+            background-color: #007bff; /* Blue */
         }
 
-
-        .see-more-link {
-            color: #60af29; /* Cor verde para o link "See more" */
+        .delete-button {
+            background-color: #dc3545; /* Red */
         }
 
-        .edit-link:hover, .delete-link:hover, .see-more-link:hover{
-            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        .see-more-button {
+            background-color: #60af29; /* Green */
         }
-        
+
+        .edit-button:hover, .delete-button:hover, .see-more-button:hover {
+            text-decoration: underline; /* Adds underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -87,11 +89,11 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{title}}</h5>
-                        <p class="textcard" class="card-text" >{{content}}</p>
-                        <a href="/posts/{{title}}" class="card-link see-more-link">See more</a>
+                        <p class="textcard card-text">{{content}}</p>
+                        <a href="/posts/{{title}}" class="btn btn-outline-success">More</a>
                         {{#isAdmin}}
-                        <a href="/admin/posts/edit/{{id}}" class="card-link edit-link">Edit Page</a>
-                        <a href="/admin/posts/delete/{{id}}" class="card-link delete-link">Delete Page</a>
+                        <a href="/admin/posts/edit/{{id}}" class="btn btn-outline-primary">Edit</a>
+                        <a href="/admin/posts/delete/{{id}}" class="btn btn-outline-danger">Delete</a>
                         {{/isAdmin}}
                     </div>
                 </div>
