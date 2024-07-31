@@ -132,9 +132,11 @@ const deletePage = (req, res) => {
         }
 
         console.log("Arquivo página excluído com sucesso!");
-        res.status(200).send("Página excluída com sucesso.");
+        // Redirect to the home page after successful deletion
+        res.redirect('/');
     });
 };
+
 
 
 module.exports = {

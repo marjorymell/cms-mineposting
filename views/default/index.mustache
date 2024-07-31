@@ -31,6 +31,26 @@
             -webkit-line-clamp: 8;
             -webkit-box-orient: vertical; 
         }
+
+        .edit-link {
+            color: #007bff; /* Cor azul para o link de edição */
+        }
+
+        .delete-link {
+            color: #dc3545; /* Cor vermelha para o link de exclusão */
+            display: block; /* Faz com que o link "Delete Page" vá para a linha abaixo */
+            margin-top: 5px; /* Espaçamento entre os links "Edit Page" e "Delete Page" */
+        }
+
+
+        .see-more-link {
+            color: #60af29; /* Cor verde para o link "See more" */
+        }
+
+        .edit-link:hover, .delete-link:hover, .see-more-link:hover{
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     </style>
 </head>
 <body>
@@ -68,10 +88,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{title}}</h5>
                         <p class="textcard" class="card-text" >{{content}}</p>
-                        <a href="/posts/{{title}}" class="card-link">Ver mais</a>
+                        <a href="/posts/{{title}}" class="card-link see-more-link">See more</a>
                         {{#isAdmin}}
-                        <a href="/admin/posts/edit/{{id}}" class="card-link">Editar Página</a>
-                        <a href="/admin/posts/delete/{{id}}" class="card-link">Deletar Página</a>
+                        <a href="/admin/posts/edit/{{id}}" class="card-link edit-link">Edit Page</a>
+                        <a href="/admin/posts/delete/{{id}}" class="card-link delete-link">Delete Page</a>
                         {{/isAdmin}}
                     </div>
                 </div>
