@@ -49,7 +49,7 @@ Para começar a usar o Mineposting, siga estas etapas simples:
 1. Certifique-se de ter o Node.js instalado em seu sistema.
 2. Faça o clone deste repositório em sua máquina local:
    ```bash
-   git clone https://github.com/seu-usuario/mineposting.git
+   git clone https://github.com/MarjoryMel/cms-mineposting
 3. Abra o terminal e execute comando abaixo para instalar todas as dependências necessárias:
    npm install
 4. Após a instalação bem-sucedida, execute o comando abaixo para iniciar o servidor:
