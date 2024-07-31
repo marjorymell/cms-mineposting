@@ -7,7 +7,10 @@ const database = require('../../utils/database');
 const renderAdminPage = (req, res) => {
     const isLoggedIn = req.session.isAdmin;
     const isAdmin = req.session.isAdmin || false;
-    res.render("admin", { isLoggedIn, isAdmin });
+    const pages = database.getAllPages();
+    const totalPages = pages.length;
+
+    res.render("admin", { isLoggedIn, isAdmin, pages, totalPages });
 };
 
 // Function to show all available pages 
