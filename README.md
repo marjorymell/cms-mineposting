@@ -1,5 +1,9 @@
 # Mineposting
 
+<div align="center">
+  <img src="views/imgs/mineposting.png" alt="Icon Mineposting">
+</div>
+
 Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especialmente projetado para jogadores de Minecraft que desejam compartilhar suas experiências e opiniões com o mundo. Este projeto é alimentado por Node.js, Nodemon e Mustache, oferecendo uma solução flexível e poderosa para criar e gerenciar seu próprio blog sobre o jogo.
 
 ## Índice
