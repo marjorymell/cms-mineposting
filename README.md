@@ -60,6 +60,30 @@ Para começar a usar o Mineposting, siga estas etapas simples:
 
 Após a instalação, você pode começar a usar o Mineposting para gerenciar seu blog sobre Minecraft. A tela inicial do blog apresenta alguns mobs do jogo, criando um ambiente temático envolvente.
 
+### Página de login
+
+Nessa página você pode realizar o seu login para poder utilizar o site. Você pode logar como usuário ou admin.
+
+<img src="views/imgs/Captura da página de login.png" alt="Captura página login">
+
+### Opções do site
+
+Dentre as opções disponíveis, você pode criar uma nova página ou realizar o lougout.
+
+<img src="views/imgs/Tela de opções.png" alt="Captura tela opções">
+
+### Criação de página
+
+Na página abaixo, você pode criar a página que deseja exibir no site, colocando um título e o conteúdo da página.
+
+<img src="/views/imgs/Captura para criação de página.png" alt="Captura criação página">
+
+### Exibição das páginas
+
+Após criar uma página, você pode visualizar ela junto com as outras já criadas previamente.
+
+<img src="views/imgs/Páginas criadas.png" alt="Captura páginas criadas">
+
 ## Contribuição
 
 Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
