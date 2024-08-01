@@ -4,17 +4,18 @@
   <img src="views/imgs/mineposting.png" alt="Icon Mineposting">
 </div>
 
-Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especialmente projetado para jogadores de Minecraft que desejam compartilhar suas experiências e opiniões com o mundo. Este projeto é alimentado por Node.js, Nodemon e Mustache, oferecendo uma solução flexível e poderosa para criar e gerenciar seu próprio blog sobre o jogo.
+Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especialmente projetado para jogadores de Minecraft. Este projeto é alimentado por Node.js, Nodemon e Mustache, oferecendo uma solução flexível e poderosa para criar e gerenciar seu próprio blog sobre o jogo.
 
 ## Índice
 
-- [Recursos Principais](#recursos-principais)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação](#instalação)
-- [Uso](#uso)
-- [Contribuição](#contribuição)
-- [Contato](#contato)
+- 📋 [Recursos Principais](#recursos-principais)
+- 📂 [Estrutura do Projeto](#estrutura-do-projeto)
+- 🔧 [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- 🚀 [Instalação](#instalação)
+- 🛠️ [Uso](#uso)
+- 🤝 [Contribuição](#contribuição)
+- 📞 [Contato](#contato)
+
 
 ## Recursos Principais
 
@@ -29,14 +30,32 @@ Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especia
 
 A organização do código está estruturada da seguinte maneira:
 
-- **controllers/**
-  - `admincontroller.js`: Controla funções administrativas como criação, edição e exclusão de páginas.
-  - `defaultcontroller.js`: Controla funções de usuários comuns.
-- **routes/**
-  - `adminroutes.js`: Define as rotas acessíveis apenas para administradores.
-  - `defaultroutes.js`: Define as rotas acessíveis para todos os usuários.
+- **scrr/**
+  - **controllers/**
+    - `admincontroller.js`: Controla funções administrativas como criação, edição e exclusão de páginas.
+    - `defaultcontroller.js`: Controla funções de usuários comuns.
+  - **routes/**
+    - `adminroutes.js`: Define as rotas acessíveis apenas para administradores.
+    - `defaultroutes.js`: Define as rotas acessíveis para todos os usuários.
+  - **utils/**
+    - `database.js`: Exporta o banco de dados.
+    - `databaseMemorys.js`: Gerencia o banco de memória.
+    - `validation.js`: Contém as validações.
+
 - **views/**: Contém os arquivos Mustache para renderização das páginas HTML.
-- **models/**: Define os modelos de dados e lógica de acesso ao banco de dados.
+  - **admin/**: Contém os templates Mustache do admin.
+    - `admin.mustache`: Template da página do admin.
+    - `createNewPage.mustache`: Template da página de criação de novas páginas com o formulário para criar as páginas.
+    - `deletePage.mustache`: Template da página de confirmação de exclusão de página.
+    - `editPage.mustache`: Template da página de edição de página com o formulário para editar o conteúdo.
+  - **default/**: Contém os templates Mustache padrão.
+    - `index.mustache`: Página principal do CMS.
+    - `login.mustache`: Página de login com os campos de formulário de login.
+
+- **imgs/**: Contém os arquivos de imagem.
+
+- **html/**: Contém os arquivos HTML gerados dinamicamente e o template Mustache base para o HTML.
+
 
 ## Tecnologias Utilizadas
 
@@ -52,8 +71,10 @@ Para começar a usar o Mineposting, siga estas etapas simples:
 
 1. Certifique-se de ter o Node.js instalado em seu sistema.
 2. Faça o clone deste repositório em sua máquina local:
+
    ```bash
    git clone https://github.com/MarjoryMel/cms-mineposting
+   
 3. Abra o terminal e execute comando abaixo para instalar todas as dependências necessárias:
    npm install
 4. Após a instalação bem-sucedida, execute o comando abaixo para iniciar o servidor:
