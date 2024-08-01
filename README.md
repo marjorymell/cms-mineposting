@@ -8,16 +8,16 @@ Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especia
 
 ## Índice
 
-- 📋 [Recursos Principais](#recursos-principais)
-- 📂 [Estrutura do Projeto](#estrutura-do-projeto)
-- 🔧 [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- 🚀 [Instalação](#instalação)
-- 🛠️ [Uso](#uso)
-- 🤝 [Contribuição](#contribuição)
-- 📞 [Contato](#contato)
+- [Recursos Principais](#recursos-principais)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Contribuição](#contribuição)
+- [Contato](#contato)
 
 
-## Recursos Principais
+## 📋 Recursos Principais
 
 - **Autenticação de Usuário:** Mantenha seu blog seguro com autenticação de usuário robusta.
 - **Criação de Página:** Adicione novas páginas e conteúdo facilmente para compartilhar suas histórias e análises do jogo.
@@ -26,7 +26,7 @@ Bem-vindo ao Mineposting, um sistema de gerenciamento de conteúdo (CMS) especia
 - **Login de Admin:** Acesse recursos administrativos exclusivos para gerenciar seu blog com facilidade.
 - **Validação de Parâmetros:** Garanta a integridade dos dados com validação de parâmetros incorporada.
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 A organização do código está estruturada da seguinte maneira:
 
@@ -56,8 +56,7 @@ A organização do código está estruturada da seguinte maneira:
 
 - **html/**: Contém os arquivos HTML gerados dinamicamente e o template Mustache base para o HTML.
 
-
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - **Node.js:** Plataforma de desenvolvimento server-side.
 - **Nodemon:** Ferramenta para monitorar e reiniciar automaticamente o servidor durante o desenvolvimento.
@@ -65,7 +64,7 @@ A organização do código está estruturada da seguinte maneira:
 - **databasememory:** Solução de banco de dados em memória para persistência de dados.
 - **Joi:** Biblioteca para validação de dados.
 
-## Instalação
+## 🚀 Instalação
 
 Para começar a usar o Mineposting, siga estas etapas simples:
 
@@ -81,7 +80,7 @@ Para começar a usar o Mineposting, siga estas etapas simples:
    npm start
 5. Acesse o seu blog através do navegador usando o endereço local : http://localhost:3000/
 
-## Uso
+## 🧩 Uso
 
 Após a instalação, você pode começar a usar o Mineposting para gerenciar seu blog sobre Minecraft. A tela inicial do blog apresenta alguns mobs do jogo, criando um ambiente temático envolvente.
 
@@ -109,7 +108,7 @@ Após criar uma página, você pode visualizar ela junto com as outras já criad
 
 <img src="views/imgs/Páginas criadas.png" alt="Captura páginas criadas">
 
-## Contribuição
+## 🤝 Contribuição
 
 Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
 
@@ -119,9 +118,10 @@ Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
 4. Push para o branch (`git push origin feature/nova-feature`).
 5. Abra um Pull Request.
 
-## Contato
+## 📞 Contato
 
-Para quaisquer dúvidas ou sugestões, sinta-se à vontade para entrar em contato com a equipe:
+Para dúvidas ou sugestões, entre em contato com:
 
-- GitHub(s): Gabvfla, MarjoryMel, leila-minello, Celsolf.
+- **GitHub:** [Gabvfla](https://github.com/Gabvfla), [MarjoryMel](https://github.com/MarjoryMel), [leila-minello](https://github.com/leila-minello), [Celsolf](https://github.com/Celsolf).
+
   
