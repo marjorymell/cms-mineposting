@@ -72,7 +72,7 @@ Para começar a usar o Mineposting, siga estas etapas simples:
 2. Faça o clone deste repositório em sua máquina local:
 
    ```bash
-   git clone https://github.com/MarjoryMel/cms-mineposting
+   git clone https://github.com/marjorymell/cms-mineposting
    
 3. Abra o terminal e execute comando abaixo para instalar todas as dependências necessárias:
    npm install
